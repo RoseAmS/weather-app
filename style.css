@@ -93,3 +93,16 @@ a {
   font-size: 55px;
   font-weight: 800;
 }
+
+.footer {
+  margin: 30px auto;
+  font-size: 14px;
+  max-width: 700px;
+}
+
+.link-footer {
+  background-image: linear-gradient(
+    rgb(255, 255, 255) 59%,
+    rgb(251, 235, 161) 50%
+  );
+}
