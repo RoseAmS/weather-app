@@ -1,7 +1,7 @@
 //Showing actual date and time - based on current location
 
 function formatDate(now) {
-  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri"];
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
   let months = [
     "Jan",
     "Feb",
