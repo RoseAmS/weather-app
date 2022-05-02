@@ -1,6 +1,56 @@
+/* Screen size */
+@media only screen and (min-width: 200px) {
+  html {
+    zoom: 0.5;
+  }
+}
+
+@media only screen and (min-width: 300px) {
+  html {
+    zoom: 0.7;
+  }
+}
+
+@media only screen and (min-width: 400px) {
+  html {
+    zoom: 0.7;
+  }
+}
+
+@media only screen and (min-width: 500px) {
+  html {
+    zoom: 0.7;
+  }
+}
+
+@media only screen and (min-width: 600px) {
+  html {
+    zoom: 0.8;
+  }
+}
+
+@media only screen and (min-width: 800px) {
+  html {
+    zoom: 0.9;
+  }
+}
+
+@media only screen and (min-width: 1000px) {
+  html {
+    zoom: 1;
+  }
+}
+
+html {
+  height: max-content;
+  margin: 0 auto;
+}
+
+/* Elements */
+
 body {
   font-family: sans-serif;
-  padding: 60px;
+  padding: 40px;
   font-size: 16px;
   color: #777777;
 }
@@ -52,20 +102,23 @@ a {
 
 .card {
   margin: 30px auto;
-  padding: 20px 0 20px 30px;
-  max-width: 800px;
+  padding: 10px 0px 10px 15px;
+  max-width: 600px;
   border-radius: 10px;
 }
 
 .search-button {
-  font-size: 13px;
-  padding: 7px 15px;
+  margin-left: -20px;
 }
 
 .curr-location {
-  margin-left: 10px;
+  margin-left: 18px;
   color: gray;
-  font-size: 28px;
+  font-size: 25px;
+}
+
+.curr-location:hover {
+  color: #0d6efd;
 }
 
 .icon-weather {
@@ -86,7 +139,6 @@ a {
   border-radius: 10px;
   padding: 10px;
   margin: 30px auto;
-  max-width: 700px;
 }
 
 .temperature {
@@ -94,10 +146,14 @@ a {
   font-weight: 800;
 }
 
+.temp-units {
+  margin-left: -10px;
+}
+
 .footer {
   margin: 30px auto;
   font-size: 14px;
-  max-width: 700px;
+  max-width: 600px;
 }
 
 .link-footer {
