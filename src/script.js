@@ -1,6 +1,7 @@
 //Showing actual date and time - based on current location
 
-function formatDate(now) {
+function formatDate(timestamp) {
+  let dateTime = new Date(timestamp);
   let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
   let months = [
     "Jan",
@@ -17,16 +18,16 @@ function formatDate(now) {
     "Dec",
   ];
 
-  let day = days[now.getDay()];
-  let month = months[now.getMonth()];
-  let date = now.getDate();
+  let day = days[dateTime.getDay()];
+  let date = dateTime.getDate();
+  let month = months[dateTime.getMonth()];
 
-  let hour = now.getHours();
+  let hour = dateTime.getHours();
   if (hour < 10) {
     hour = `0${hour}`;
   }
 
-  let minutes = now.getMinutes();
+  let minutes = dateTime.getMinutes();
   if (minutes < 10) {
     minutes = `0${minutes}`;
   }
@@ -34,10 +35,13 @@ function formatDate(now) {
   return `${day}, ${month} ${date} ${hour}:${minutes}`;
 }
 
-let dateTime = document.querySelector("#date-time");
-let now = new Date();
+function formatDay(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let day = date.getDay();
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 
-dateTime.innerHTML = formatDate(now);
+  return days[day];
+}
 
 //Showing city to be searched
 
@@ -64,7 +68,24 @@ searchForm.addEventListener("submit", searchSubmit);
 function showWeather(response) {
   let city = response.data.name;
   let country = response.data.sys.country;
+  let iconMain = response.data.weather[0].icon;
+
+  document.querySelector("#date-time").innerHTML = formatDate(
+    response.data.dt * 1000
+  );
+
   document.querySelector("h2").innerHTML = `${city}, ${country}`;
+
+  document
+    .querySelector("#icon-main")
+    .setAttribute(
+      "src",
+      `https://openweathermap.org/img/wn/${iconMain}@2x.png`
+    );
+
+  document
+    .querySelector("#icon-main")
+    .setAttribute("alt", response.data.weather[0].main);
 
   document.querySelector("#temperature").innerHTML = Math.round(
     response.data.main.temp

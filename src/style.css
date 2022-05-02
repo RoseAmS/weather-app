@@ -53,7 +53,7 @@ a {
 .card {
   margin: 30px auto;
   padding: 20px 0 20px 30px;
-  max-width: 700px;
+  max-width: 800px;
   border-radius: 10px;
 }
 
@@ -105,4 +105,10 @@ a {
     rgb(255, 255, 255) 59%,
     rgb(251, 235, 161) 50%
   );
+}
+
+.float-left {
+  margin-right: -25px;
+  margin-left: -20px;
+  margin-top: -10px;
 }
