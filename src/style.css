@@ -170,12 +170,12 @@ lottie-player {
 }
 
 .weather-forecast-date {
-  margin-bottom: -35px;
+  margin-bottom: -20px;
 }
 
 .weather-forecast-temperature .weather-forecast-icon {
   font-weight: bold;
-  margin-top: -15px;
+  margin-top: -25px;
 }
 
 .weather-forecast-temp-min {
