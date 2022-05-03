@@ -224,16 +224,26 @@ function showWeather(response) {
 
   document.querySelector("h2").innerHTML = `${city}, ${country}`;
 
-  document.querySelector("#icon-main").innerHTML = `
-  <lottie-player
-    src="${searchIcon(iconMain)}"
-    background="transparent"
-    speed="3"
-    style="width: 80px"
-    loop
-    autoplay
-    alt="${response.data.weather[0].main}"
-  ></lottie-player>`;
+  let iconElement = document.querySelector("#icon-main");
+
+  let iconHTML = `<span class="icon-main">`;
+  iconHTML =
+    iconHTML +
+    `
+          <lottie-player
+                  src="${searchIcon(iconMain)}"
+                  background="transparent"
+                  speed="3"
+                  style="width: 80px"
+                  loop
+                  autoplay
+                  alt= ${response.data.weather[0].main}
+                ></lottie-player>
+            <div class="weather-forecast-temperature">
+          `;
+
+  iconHTML = iconHTML + `</span>`;
+  iconElement.innerHTML = iconHTML;
 
   // document.querySelector("#icon-main").setAttribute(
   //   "src",
