@@ -97,7 +97,7 @@ sup {
 
 a {
   text-decoration-line: none;
-  color: #777777;
+  color: #9d9c9c;
 }
 
 .card {
@@ -112,7 +112,7 @@ a {
 }
 
 .curr-location {
-  margin-left: 18px;
+  margin-left: 35px;
   color: gray;
   font-size: 25px;
 }
@@ -148,6 +148,12 @@ a {
 
 .temp-units {
   margin-left: -10px;
+  color: #9d9c9c;
+}
+
+.temp-units .active {
+  color: #777777;
+  cursor: default;
 }
 
 .footer {
@@ -157,6 +163,7 @@ a {
 }
 
 .link-footer {
+  color: #777777;
   background-image: linear-gradient(
     rgb(255, 255, 255) 59%,
     rgb(251, 235, 161) 50%

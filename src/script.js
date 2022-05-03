@@ -1,7 +1,10 @@
 //Showing actual date and time - based on current location
 
 function formatDate(timestamp) {
-  let dateTime = new Date(timestamp);
+  let d = new Date();
+  let utc = d.getTime() + d.getTimezoneOffset() * 60000;
+  let dateTime = new Date(utc + 3600000 * (timestamp / 3600));
+
   let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
   let months = [
     "Jan",
@@ -34,6 +37,8 @@ function formatDate(timestamp) {
 
   return `${day}, ${month} ${date} ${hour}:${minutes}`;
 }
+
+//
 
 function formatDay(timestamp) {
   let date = new Date(timestamp * 1000);
@@ -70,8 +75,11 @@ function showWeather(response) {
   let country = response.data.sys.country;
   let iconMain = response.data.weather[0].icon;
 
+  celsiusTemp = response.data.main.temp;
+  feelsLikeTemp = response.data.main.feels_like;
+
   document.querySelector("#date-time").innerHTML = formatDate(
-    response.data.dt * 1000
+    response.data.timezone
   );
 
   document.querySelector("h2").innerHTML = `${city}, ${country}`;
@@ -87,13 +95,9 @@ function showWeather(response) {
     .querySelector("#icon-main")
     .setAttribute("alt", response.data.weather[0].main);
 
-  document.querySelector("#temperature").innerHTML = Math.round(
-    response.data.main.temp
-  );
+  document.querySelector("#temperature").innerHTML = Math.round(celsiusTemp);
 
-  document.querySelector("#feels-like").innerHTML = Math.round(
-    response.data.main.feels_like
-  );
+  document.querySelector("#feels-like").innerHTML = Math.round(feelsLikeTemp);
 
   document.querySelector("#humidity").innerHTML = response.data.main.humidity;
 
@@ -105,30 +109,42 @@ function showWeather(response) {
 }
 
 //Functions to convert temperatures
+//Convert to Fahrenheit
 
 function showFahrenheit(event) {
   event.preventDefault();
 
   document.querySelector("#temperature").innerHTML = Math.round(
-    (Number(temperature) * 9) / 5 + 32
+    (Number(celsiusTemp) * 9) / 5 + 32
   );
 
   document.querySelector("#feels-like").innerHTML = Math.round(
-    (Number(feelsLike) * 9) / 5 + 32
+    (Number(feelsLikeTemp) * 9) / 5 + 32
   );
+
+  //remove the active class from Celsius & assigns to Fahrenheit
+  celsius.classList.remove("active");
+  fahrenheit.classList.add("active");
 }
 
 let fahrenheit = document.querySelector("a#fahrenheit");
 fahrenheit.addEventListener("click", showFahrenheit);
 
-// function showCelsius(event) {
-//   event.preventDefault();
-//   let temperature = document.querySelector("#temperature");
-//   temperature.innerHTML = "79°";
-// }
+//Convert to Celsius
+function showCelsius(event) {
+  event.preventDefault();
 
-// let celsius = document.querySelector("a#celsius");
-// celsius.addEventListener("click", showCelsius);
+  document.querySelector("#temperature").innerHTML = Math.round(celsiusTemp);
+
+  document.querySelector("#feels-like").innerHTML = Math.round(feelsLikeTemp);
+
+  //remove the active class from Fahrenheit & assigns to Celsius
+  celsius.classList.add("active");
+  fahrenheit.classList.remove("active");
+}
+
+let celsius = document.querySelector("a#celsius");
+celsius.addEventListener("click", showCelsius);
 
 //Functions to API calls & Geolocation
 
@@ -150,5 +166,10 @@ function getCurrentPosition(event) {
 
 let currentLocation = document.querySelector("#current-location");
 currentLocation.addEventListener("click", getCurrentPosition);
+
+//Global variables
+
+let celsiusTemp = null;
+let feelsLikeTemp = null;
 
 searchCity("Managua");
