@@ -1,58 +1,51 @@
 /* Screen size */
+
 @media only screen and (min-width: 200px) {
   html {
-    zoom: 0.5;
-  }
-}
-
-@media only screen and (min-width: 300px) {
-  html {
-    zoom: 0.7;
-  }
-}
-
-@media only screen and (min-width: 400px) {
-  html {
-    zoom: 0.7;
+    zoom: 0.6;
+    font-size: 80%;
   }
 }
 
 @media only screen and (min-width: 500px) {
   html {
-    zoom: 0.7;
-  }
-}
-
-@media only screen and (min-width: 600px) {
-  html {
     zoom: 0.8;
   }
 }
 
-@media only screen and (min-width: 800px) {
+@media only screen and (min-width: 768px) {
   html {
-    zoom: 0.9;
+    zoom: 1;
   }
 }
 
-@media only screen and (min-width: 1000px) {
+@media only screen and (min-width: 1024px) {
   html {
-    zoom: 1;
+    zoom: 1.1;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  html {
+    zoom: 1.2;
   }
 }
 
 html {
   height: max-content;
   margin: 0 auto;
+  background: #fff;
 }
 
 /* Elements */
 
 body {
   font-family: Recursive;
-  padding: 30px;
+  padding: 20px;
   font-size: 16px;
   color: #777777;
+  background: #eee;
+  background: linear-gradient(0deg, rgba(0, 0, 200, 0.2), rgba(0, 0, 200, 0));
 }
 
 h1 {
@@ -104,7 +97,9 @@ a {
   margin: 30px auto;
   padding: 10px 10px 20px 15px;
   max-width: 600px;
-  border-radius: 10px;
+  border-radius: 15px #fff;
+  background: #eee;
+  background: linear-gradient(100deg, rgba(0, 0, 200, 0.1), rgba(0, 0, 200, 0));
 }
 
 .search-button {
@@ -169,14 +164,12 @@ a {
   margin: 30px auto;
   font-size: 14px;
   max-width: 600px;
+  color: blueviolet;
+  font-weight: 600;
 }
 
 .link-footer {
-  color: #777777;
-  background-image: linear-gradient(
-    rgb(255, 255, 255) 59%,
-    rgb(251, 235, 161) 50%
-  );
+  color: #708090;
 }
 
 .float-left {

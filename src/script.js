@@ -58,6 +58,8 @@ function displayForecast(response) {
   let forecastHTML = `<div class="row">`;
   forecast.forEach(function (forecastDay, index) {
     if (index < 6) {
+      forecastMax = forecastDay.temp.max;
+      forecastMin = forecastDay.temp.min;
       forecastHTML =
         forecastHTML +
         `
