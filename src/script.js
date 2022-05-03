@@ -135,8 +135,6 @@ function searchIcon(icon) {
 function displayForecast(response) {
   let forecast = response.data.daily;
 
-  console.log(response);
-
   let forecastElement = document.querySelector("#forecast");
 
   // Creating days array to loop and create HTML
@@ -215,7 +213,7 @@ searchForm.addEventListener("submit", searchSubmit);
 function showWeather(response) {
   let city = response.data.name;
   let country = response.data.sys.country;
-  let iconMain = searchIcon(response.data.weather[0].icon);
+  let iconMain = response.data.weather[0].icon;
 
   celsiusTemp = response.data.main.temp;
   feelsLikeTemp = response.data.main.feels_like;
@@ -226,17 +224,26 @@ function showWeather(response) {
 
   document.querySelector("h2").innerHTML = `${city}, ${country}`;
 
-  document.querySelector("#icon-main").setAttribute(
-    "src",
-    `https://raw.githubusercontent.com/basmilius/weather-icons/dev/production/fill/lottie/partly-cloudy-night.json`
-    // `https://openweathermap.org/img/wn/${iconMain}@2x.png`
-  );
+  document.querySelector("#icon-main").innerHTML = `
+  <lottie-player
+    src="${searchIcon(iconMain)}"
+    background="transparent"
+    speed="3"
+    style="width: 80px"
+    loop
+    autoplay
+    alt="${response.data.weather[0].main}"
+  ></lottie-player>`;
 
-  console.log("#icon-Main");
+  // document.querySelector("#icon-main").setAttribute(
+  //   "src",
+  //   `https://raw.githubusercontent.com/basmilius/weather-icons/dev/production/fill/lottie/partly-cloudy-night.json`
+  //   // `https://openweathermap.org/img/wn/${iconMain}@2x.png`
+  // );
 
-  document
-    .querySelector("#icon-main")
-    .setAttribute("alt", response.data.weather[0].main);
+  // document
+  //   .querySelector("#icon-main")
+  //   .setAttribute("alt", response.data.weather[0].main);
 
   document.querySelector("#temperature").innerHTML = Math.round(celsiusTemp);
 
