@@ -166,6 +166,7 @@ lottie-player {
 .weather-forecast {
   font-size: 14px;
   margin-top: -15px;
+  margin-bottom: -10px;
   text-align: center;
 }
 
@@ -175,7 +176,7 @@ lottie-player {
 
 .weather-forecast-temperature .weather-forecast-icon {
   font-weight: bold;
-  margin-top: -25px;
+  margin-top: -15px;
 }
 
 .weather-forecast-temp-min {
