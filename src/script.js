@@ -237,7 +237,6 @@ function showWeather(response) {
                   autoplay
                   alt= ${response.data.weather[0].main}
                 ></lottie-player>
-            <div class="weather-forecast-temperature">
           `;
 
   // iconHTML = iconHTML + `</span>`;
