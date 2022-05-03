@@ -169,6 +169,7 @@ lottie-player {
 
 .weather-forecast-temperature {
   font-weight: bold;
+  margin-top: -15px;
 }
 
 .weather-forecast-temp-min {
