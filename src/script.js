@@ -215,6 +215,7 @@ function showWeather(response) {
   let country = response.data.sys.country;
   let iconMain = response.data.weather[0].icon;
 
+  console.log(response);
   celsiusTemp = response.data.main.temp;
   feelsLikeTemp = response.data.main.feels_like;
 
@@ -226,10 +227,7 @@ function showWeather(response) {
 
   let iconElement = document.querySelector("#icon-main");
 
-  let iconHTML = `<span class="icon-main">`;
-  iconHTML =
-    iconHTML +
-    `
+  let iconHTML = `
           <lottie-player
                   src="${searchIcon(iconMain)}"
                   background="transparent"
@@ -242,7 +240,7 @@ function showWeather(response) {
             <div class="weather-forecast-temperature">
           `;
 
-  iconHTML = iconHTML + `</span>`;
+  // iconHTML = iconHTML + `</span>`;
   iconElement.innerHTML = iconHTML;
 
   // document.querySelector("#icon-main").setAttribute(
