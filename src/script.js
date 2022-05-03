@@ -135,6 +135,8 @@ function searchIcon(icon) {
 function displayForecast(response) {
   let forecast = response.data.daily;
 
+  console.log(response);
+
   let forecastElement = document.querySelector("#forecast");
 
   // Creating days array to loop and create HTML
@@ -226,9 +228,11 @@ function showWeather(response) {
 
   document.querySelector("#icon-main").setAttribute(
     "src",
-    `${iconMain}`
+    "${iconMain}"
     // `https://openweathermap.org/img/wn/${iconMain}@2x.png`
   );
+
+  console.log(iconMain);
 
   document
     .querySelector("#icon-main")
