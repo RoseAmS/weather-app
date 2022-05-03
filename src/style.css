@@ -34,7 +34,9 @@
 html {
   height: max-content;
   margin: 0 auto;
-  background: #fff;
+  background: #eee;
+  background: linear-gradient(0deg, rgba(0, 0, 200, 0), rgba(0, 0, 200, 0.1));
+  max-height: 700px;
 }
 
 /* Elements */
@@ -43,9 +45,9 @@ body {
   font-family: Recursive;
   padding: 20px;
   font-size: 16px;
-  color: #777777;
-  background: #eee;
-  background: linear-gradient(0deg, rgba(0, 0, 200, 0.2), rgba(0, 0, 200, 0));
+  color: #777666;
+  background: linear-gradient(0deg, rgba(0, 0, 200, 0.1), rgba(0, 0, 200, 0));
+  max-height: 700px;
 }
 
 h1 {
@@ -97,13 +99,20 @@ a {
   margin: 30px auto;
   padding: 10px 10px 20px 15px;
   max-width: 600px;
-  border-radius: 15px #fff;
+  border-radius: 15px;
+  border: transparent;
   background: #eee;
-  background: linear-gradient(100deg, rgba(0, 0, 200, 0.1), rgba(0, 0, 200, 0));
+  background: radial-gradient(
+    250px at 10.9% 48.6%,
+    rgb(194, 227, 255) 39.3%,
+    rgb(226, 196, 253, 0.25) 72.5%
+  );
+  /* background: linear-gradient(120deg, rgba(0, 0, 200, 0.1), rgba(0, 0, 100, 0)); */
 }
 
 .search-button {
-  margin-left: -20px;
+  margin-top: -2px;
+  margin-left: -15px;
 }
 
 .curr-location {
@@ -116,12 +125,18 @@ a {
   color: #0d6efd;
 }
 
-.icon-weather {
-  font-size: 30px;
-  margin-left: 10px;
+.icon-main {
+  padding: 0;
+  margin-top: -10px;
+}
+
+lottie-player {
+  --lottie-player-toolbar-height: 5px;
+  display: inline-block;
   margin-top: 10px;
-  margin-bottom: 10px;
-  color: lightblue;
+  margin-right: -10px;
+  margin-left: -20px;
+  padding: 0;
 }
 
 .weather-app {

@@ -31,6 +31,9 @@
     <!-- Link to CSS -->
     <link rel="stylesheet" href="src/style.css" />
 
+    <!-- Link to Lottie player -->
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+
     <!-- Axios -->
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   </head>
@@ -81,8 +84,20 @@
           <div class="row">
             <div class="col">
               <div class="clearfix temperature">
-                <img src=".." alt="" id="icon-main" class="float-left" />
+                <span class="icon-main">
+                  <lottie-player
+                    src=".."
+                    background="transparent"
+                    speed="3"
+                    style="width: 80px"
+                    loop
+                    autoplay
+                    id="icon-main"
+                    alt="clear"
+                  ></lottie-player>
+                </span>
 
+                <!-- <img src=".." alt="" id="icon-main" class="float-left" /> -->
                 <span id="temperature">26</span>
                 <span class="temp-units">
                   <sup>
@@ -116,7 +131,16 @@
             <div class="row">
               <div class="col-2">
                 <div class="weather-forecast-date">Tue</div>
-                <img src=".." alt="" width="30" />
+                <lottie-player
+                  src=".."
+                  background="transparent"
+                  speed="3"
+                  style="width: 80px"
+                  loop
+                  autoplay
+                  alt="clear"
+                ></lottie-player>
+                <!-- <img src=".." alt="" width="30" /> -->
                 <div class="weather-forecast-temperature">
                   <span class="weather-forecast-temp-max"> 18° </span>
                   <span class="weather-forecast-temp-min"> 12° </span>

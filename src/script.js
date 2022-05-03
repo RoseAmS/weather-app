@@ -30,12 +30,20 @@ function formatDate(timestamp) {
     hour = `0${hour}`;
   }
 
+  let ampm = hour >= 12 ? "PM" : "AM";
+  if (hour > 12) {
+    hour = hour - 12;
+    if (hour < 10) {
+      hour = `0${hour}`;
+    }
+  }
+
   let minutes = dateTime.getMinutes();
   if (minutes < 10) {
     minutes = `0${minutes}`;
   }
 
-  return `${day}, ${month} ${date} ${hour}:${minutes}`;
+  return `${day}, ${month} ${date} ${hour}:${minutes} ${ampm}`;
 }
 
 //Format day from Forecast
@@ -46,6 +54,81 @@ function formatDay(timestamp) {
   let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 
   return days[day];
+}
+
+//Find weather icon based on code
+function searchIcon(icon) {
+  let arr = [
+    {
+      code: "01d",
+      value:
+        "https://raw.githubusercontent.com/basmilius/weather-icons/dev/production/fill/lottie/clear-day.json",
+    },
+    {
+      code: "01n",
+      value:
+        "https://raw.githubusercontent.com/basmilius/weather-icons/dev/production/fill/lottie/clear-night.json",
+    },
+    {
+      code: "02d",
+      value:
+        "https://raw.githubusercontent.com/basmilius/weather-icons/dev/production/fill/lottie/partly-cloudy-day.json",
+    },
+    {
+      code: "02n",
+      value:
+        "https://raw.githubusercontent.com/basmilius/weather-icons/dev/production/fill/lottie/partly-cloudy-night.json",
+    },
+    {
+      code: "03d",
+      value:
+        "https://raw.githubusercontent.com/basmilius/weather-icons/dev/production/fill/lottie/cloudy.json",
+    },
+    {
+      code: "03n",
+      value:
+        "https://raw.githubusercontent.com/basmilius/weather-icons/dev/production/fill/lottie/cloudy.json",
+    },
+    {
+      code: "04d",
+      value:
+        "https://raw.githubusercontent.com/basmilius/weather-icons/dev/production/fill/lottie/overcast-day.json",
+    },
+    {
+      code: "04n",
+      value:
+        "https://raw.githubusercontent.com/basmilius/weather-icons/dev/production/fill/lottie/overcast-night.json",
+    },
+    {
+      code: "09d",
+      value:
+        "https://raw.githubusercontent.com/basmilius/weather-icons/dev/production/fill/lottie/drizzle.json",
+    },
+    {
+      code: "10d",
+      value:
+        "https://raw.githubusercontent.com/basmilius/weather-icons/dev/production/fill/lottie/extreme-rain.json",
+    },
+    {
+      code: "11d",
+      value:
+        "https://raw.githubusercontent.com/basmilius/weather-icons/dev/production/fill/lottie/thunderstorms.json",
+    },
+    {
+      code: "13d",
+      value:
+        "https://raw.githubusercontent.com/basmilius/weather-icons/dev/production/fill/lottie/snow.json",
+    },
+    {
+      code: "50d",
+      value:
+        "https://raw.githubusercontent.com/basmilius/weather-icons/dev/production/fill/lottie/tornado.json",
+    },
+  ];
+
+  let obj = arr.find((o) => o.code === icon);
+
+  return obj.value;
 }
 
 //Display Forecast and add HTML info
@@ -67,9 +150,15 @@ function displayForecast(response) {
             <div class="weather-forecast-date">
               ${formatDay(forecastDay.dt)}
             </div>
-            <img src="https://openweathermap.org/img/wn/${
-              forecastDay.weather[0].icon
-            }@2x.png" alt="${forecastDay.weather[0].main}" width="45"/>
+            <lottie-player
+                  src="${searchIcon(forecastDay.weather[0].icon)}"
+                  background="transparent"
+                  speed="3"
+                  style="width: 80px"
+                  loop
+                  autoplay
+                  alt="${forecastDay.weather[0].main}"
+                ></lottie-player>
             <div class="weather-forecast-temperature">
               <span class="weather-forecast-temp-max"> ${Math.round(
                 forecastDay.temp.max
@@ -124,7 +213,7 @@ searchForm.addEventListener("submit", searchSubmit);
 function showWeather(response) {
   let city = response.data.name;
   let country = response.data.sys.country;
-  let iconMain = response.data.weather[0].icon;
+  let iconMain = searchIcon(response.data.weather[0].icon);
 
   celsiusTemp = response.data.main.temp;
   feelsLikeTemp = response.data.main.feels_like;
@@ -135,12 +224,11 @@ function showWeather(response) {
 
   document.querySelector("h2").innerHTML = `${city}, ${country}`;
 
-  document
-    .querySelector("#icon-main")
-    .setAttribute(
-      "src",
-      `https://openweathermap.org/img/wn/${iconMain}@2x.png`
-    );
+  document.querySelector("#icon-main").setAttribute(
+    "src",
+    `${iconMain}`
+    // `https://openweathermap.org/img/wn/${iconMain}@2x.png`
+  );
 
   document
     .querySelector("#icon-main")
