@@ -154,7 +154,7 @@ function displayForecast(response) {
                   src="${searchIcon(forecastDay.weather[0].icon)}"
                   background="transparent"
                   speed="3"
-                  style="width: 80px"
+                  style="width: 50px"
                   loop
                   autoplay
                   alt="${forecastDay.weather[0].main}"
