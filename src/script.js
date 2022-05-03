@@ -62,67 +62,67 @@ function searchIcon(icon) {
     {
       code: "01d",
       value:
-        "https://raw.githubusercontent.com/basmilius/weather-icons/dev/production/fill/lottie/clear-day.json",
+        "https://raw.githubusercontent.com/RoseAmS/weather-icons/dev/production/fill/lottie/clear-day.json",
     },
     {
       code: "01n",
       value:
-        "https://raw.githubusercontent.com/basmilius/weather-icons/dev/production/fill/lottie/clear-night.json",
+        "https://raw.githubusercontent.com/RoseAmS/weather-icons/dev/production/fill/lottie/clear-night.json",
     },
     {
       code: "02d",
       value:
-        "https://raw.githubusercontent.com/basmilius/weather-icons/dev/production/fill/lottie/partly-cloudy-day.json",
+        "https://raw.githubusercontent.com/RoseAmS/weather-icons/dev/production/fill/lottie/partly-cloudy-day.json",
     },
     {
       code: "02n",
       value:
-        "https://raw.githubusercontent.com/basmilius/weather-icons/dev/production/fill/lottie/partly-cloudy-night.json",
+        "https://raw.githubusercontent.com/RoseAmS/weather-icons/dev/production/fill/lottie/partly-cloudy-night.json",
     },
     {
       code: "03d",
       value:
-        "https://raw.githubusercontent.com/basmilius/weather-icons/dev/production/fill/lottie/cloudy.json",
+        "https://raw.githubusercontent.com/RoseAmS/weather-icons/dev/production/fill/lottie/cloudy.json",
     },
     {
       code: "03n",
       value:
-        "https://raw.githubusercontent.com/basmilius/weather-icons/dev/production/fill/lottie/cloudy.json",
+        "https://raw.githubusercontent.com/RoseAmS/weather-icons/dev/production/fill/lottie/cloudy.json",
     },
     {
       code: "04d",
       value:
-        "https://raw.githubusercontent.com/basmilius/weather-icons/dev/production/fill/lottie/overcast-day.json",
+        "https://raw.githubusercontent.com/RoseAmS/weather-icons/dev/production/fill/lottie/overcast-day.json",
     },
     {
       code: "04n",
       value:
-        "https://raw.githubusercontent.com/basmilius/weather-icons/dev/production/fill/lottie/overcast-night.json",
+        "https://raw.githubusercontent.com/RoseAmS/weather-icons/dev/production/fill/lottie/overcast-night.json",
     },
     {
       code: "09d",
       value:
-        "https://raw.githubusercontent.com/basmilius/weather-icons/dev/production/fill/lottie/drizzle.json",
+        "https://raw.githubusercontent.com/RoseAmS/weather-icons/dev/production/fill/lottie/drizzle.json",
     },
     {
       code: "10d",
       value:
-        "https://raw.githubusercontent.com/basmilius/weather-icons/dev/production/fill/lottie/extreme-rain.json",
+        "https://raw.githubusercontent.com/RoseAmS/weather-icons/dev/production/fill/lottie/extreme-rain.json",
     },
     {
       code: "11d",
       value:
-        "https://raw.githubusercontent.com/basmilius/weather-icons/dev/production/fill/lottie/thunderstorms.json",
+        "https://raw.githubusercontent.com/RoseAmS/weather-icons/dev/production/fill/lottie/thunderstorms.json",
     },
     {
       code: "13d",
       value:
-        "https://raw.githubusercontent.com/basmilius/weather-icons/dev/production/fill/lottie/snow.json",
+        "https://raw.githubusercontent.com/RoseAmS/weather-icons/dev/production/fill/lottie/snow.json",
     },
     {
       code: "50d",
       value:
-        "https://raw.githubusercontent.com/basmilius/weather-icons/dev/production/fill/lottie/tornado.json",
+        "https://raw.githubusercontent.com/RoseAmS/weather-icons/dev/production/fill/lottie/tornado.json",
     },
   ];
 
@@ -215,7 +215,6 @@ function showWeather(response) {
   let country = response.data.sys.country;
   let iconMain = response.data.weather[0].icon;
 
-  console.log(response);
   celsiusTemp = response.data.main.temp;
   feelsLikeTemp = response.data.main.feels_like;
 
@@ -225,6 +224,7 @@ function showWeather(response) {
 
   document.querySelector("h2").innerHTML = `${city}, ${country}`;
 
+  // Update main icon using code from response
   let iconElement = document.querySelector("#icon-main");
 
   let iconHTML = `
@@ -239,18 +239,7 @@ function showWeather(response) {
                 ></lottie-player>
           `;
 
-  // iconHTML = iconHTML + `</span>`;
   iconElement.innerHTML = iconHTML;
-
-  // document.querySelector("#icon-main").setAttribute(
-  //   "src",
-  //   `https://raw.githubusercontent.com/basmilius/weather-icons/dev/production/fill/lottie/partly-cloudy-night.json`
-  //   // `https://openweathermap.org/img/wn/${iconMain}@2x.png`
-  // );
-
-  // document
-  //   .querySelector("#icon-main")
-  //   .setAttribute("alt", response.data.weather[0].main);
 
   document.querySelector("#temperature").innerHTML = Math.round(celsiusTemp);
 
