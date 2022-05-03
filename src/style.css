@@ -127,7 +127,6 @@ a {
 
 .icon-main {
   padding: 0;
-  margin-top: -10px;
   display: inline-block;
 }
 
@@ -135,7 +134,6 @@ lottie-player {
   --lottie-player-toolbar-height: 5px;
   display: inline-block;
   margin-top: 10px;
-  margin-right: -10px;
   margin-left: -20px;
   padding: 0;
 }
