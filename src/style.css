@@ -187,7 +187,8 @@ lottie-player {
 }
 
 .footer {
-  margin: 10px 30px 0 30px;
+  margin: auto;
+  margin-top: -10px;
   font-size: 14px;
   max-width: 600px;
   color: blueviolet;

@@ -231,7 +231,7 @@ function showWeather(response) {
           <lottie-player
                   src="${searchIcon(iconMain)}"
                   background="transparent"
-                  speed="3"
+                  speed="3.5"
                   style="width: 80px"
                   loop
                   autoplay
