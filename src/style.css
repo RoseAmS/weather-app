@@ -167,7 +167,11 @@ lottie-player {
   text-align: center;
 }
 
-.weather-forecast-temperature {
+.weather-forecast-date {
+  margin-bottom: -15px;
+}
+
+.weather-forecast-temperature .weather-forecast-icon {
   font-weight: bold;
   margin-top: -15px;
 }
