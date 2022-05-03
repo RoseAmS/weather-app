@@ -232,7 +232,7 @@ function showWeather(response) {
     // `https://openweathermap.org/img/wn/${iconMain}@2x.png`
   );
 
-  console.log(iconMain);
+  console.log("#icon-Main");
 
   document
     .querySelector("#icon-main")

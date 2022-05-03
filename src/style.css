@@ -97,7 +97,7 @@ a {
 
 .card {
   margin: 30px auto;
-  padding: 10px 10px 30px 15px;
+  padding: 10px 10px 50px 15px;
   max-width: 600px;
   border-radius: 15px;
   border: transparent;
@@ -173,7 +173,7 @@ lottie-player {
 
 .weather-forecast-temperature .weather-forecast-icon {
   font-weight: bold;
-  margin-top: -35px;
+  margin-top: -25px;
 }
 
 .weather-forecast-temp-min {
