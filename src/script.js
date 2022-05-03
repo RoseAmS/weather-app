@@ -228,7 +228,7 @@ function showWeather(response) {
 
   document.querySelector("#icon-main").setAttribute(
     "src",
-    "https://raw.githubusercontent.com/basmilius/weather-icons/dev/production/fill/lottie/partly-cloudy-night.json"
+    `https://raw.githubusercontent.com/basmilius/weather-icons/dev/production/fill/lottie/partly-cloudy-night.json`
     // `https://openweathermap.org/img/wn/${iconMain}@2x.png`
   );
 
